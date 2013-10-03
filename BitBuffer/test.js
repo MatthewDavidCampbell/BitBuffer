@@ -14,10 +14,33 @@
  * the License.
  */
 
-var assert = require('assert');
+var assert = require('assert'), BitBuffer = require('./bitbuffer');
 
-describe ('Basic functions with BitBuffer', function() {
-	it('Read the wright bit', function(done) {
-		
+describe('Basic functions with BitBuffer', function() {
+
+	it('Read first bit (0) of a byte as active i.e. 128', function() {
+		var buffer = new Buffer(1);
+		buffer.writeUInt8(128, 0);
+		var bb = new BitBuffer(buffer);
+
+		assert.equal(1, bb.read());
+	});
+	
+	it('Read last bit (7) of a byte as active i.e. 1', function() {
+		var buffer = new Buffer(1);
+		buffer.writeUInt8(1, 0);
+		var bb = new BitBuffer(buffer);
+
+		bb.setPosition(7);
+		assert.equal(1, bb.read());
+	});
+	
+	it('Write 128 to a single byte and compare binary string b80', function() {
+		var buffer = new Buffer(1);
+		buffer.writeUInt8(0, 0);
+		var bb = new BitBuffer(buffer);
+
+		bb.write(128, 8);
+		assert.equal("80", bb.getBuffer().toString('hex'));
 	});
 });
