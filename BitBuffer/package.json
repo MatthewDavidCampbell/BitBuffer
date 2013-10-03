@@ -6,7 +6,11 @@
   "scripts": {
     "test": "make test"
   },
-  "dependencies" : [],
+  "dependencies" : {},
+  "devDependencies": {
+	  "should" : ">= 1.3.0",
+	  "mocha": "*"
+  },
   "repository": "",
   "keywords": [
     "Node.js",
