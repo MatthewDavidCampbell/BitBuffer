@@ -1,0 +1,18 @@
+{
+  "name": "BitBuffer",
+  "version": "0.1.0",
+  "description": "BitBuffer",
+  "main": "bitbuffer.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "dependencies" : [],
+  "repository": "",
+  "keywords": [
+    "Node.js",
+    "Buffer"
+  ],
+  "author": "",
+  "license": "Apache 2.0",
+  "readmeFilename": "README.md"
+}
