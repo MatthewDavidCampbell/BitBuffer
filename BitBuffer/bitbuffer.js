@@ -104,7 +104,7 @@ bitbuffer.prototype.cavlc = function(size) {
  * http://x264dev.multimedia.cx/archives/category/exponential-golomb-codes
  * 
  */
-bitbuffer.prototype.calvcUE = function() {
+bitbuffer.prototype.cavlcUE = function() {
 	var cnt = 0;
 	while (this.read() === 0)
 		cnt++;
@@ -123,12 +123,12 @@ bitbuffer.prototype.calvcUE = function() {
 };
 
 /**
- * Calvc SE (signed) read
+ * cavlc SE (signed) read
  * 
  * @returns
  */
-bitbuffer.prototype.calvcSE = function() {
-	var val = this.calvcUE();
+bitbuffer.prototype.cavlcSE = function() {
+	var val = this.cavlcUE();
 
 	var sign = ((val & 0x1) << 1) - 1;
 	val = ((val >> 1) + (val & 0x1)) * sign;
@@ -137,31 +137,31 @@ bitbuffer.prototype.calvcSE = function() {
 };
 
 /**
- * Calvc TE
+ * cavlc TE
  */
-bitbuffer.prototype.calvcTE = function(max) {
+bitbuffer.prototype.cavlcTE = function(max) {
 	if (max === undefined)
 		return null;
 
 	if (max > 1)
-		return this.calvcUE();
+		return this.cavlcUE();
 
 	return ~this.read() & 0x1;
 };
 
 /**
- * Calvc ME
+ * cavlc ME
  * 
  * @returns
  */
-bitbuffer.prototype.calvcME = function() {
-	return this.calvcUE();
+bitbuffer.prototype.cavlcME = function() {
+	return this.cavlcUE();
 };
 
 /**
  * PPS processing
  */
-bitbuffer.prototype.calvcMoreRBSP = function() {
+bitbuffer.prototype.cavlcMoreRBSP = function() {
 	var nBit = this.position % 8;
 
 	if (this.position >= this.limit || this.position === 0)
