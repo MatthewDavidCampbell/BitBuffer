@@ -1,7 +1,7 @@
 {
-  "name": "bitbuffer",
+  "name": "h264-bitbuffer",
   "version": "0.1.0",
-  "description": "bitbuffer",
+  "description": "H264 Bit buffer",
   "main": "bitbuffer.js",
   "scripts": {
     "test": "make test"
@@ -11,10 +11,15 @@
 	  "should" : ">= 1.3.0",
 	  "mocha": "*"
   },
-  "repository": "",
+  "repository": {
+	  "type": "git",
+	  "url": "https://github.com/MatthewDavidYoung/BitBuffer.git"
+  },
   "keywords": [
     "Node.js",
-    "Buffer"
+    "Buffer",
+    "bit",
+    "bits"
   ],
   "author": "Matthew Young",
   "license": "Apache 2.0",
